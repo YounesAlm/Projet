@@ -1,0 +1,14 @@
+section
+{
+	margin: 200px 0 200px 0; 
+	display: flex;
+	justify-content: center;
+}
+
+.bouton
+{
+	width: 200px;
+	height: 100px;
+	padding-top: 70px;
+	font-size: 1.2em;
+}

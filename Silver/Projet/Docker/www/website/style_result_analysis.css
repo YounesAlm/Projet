@@ -1,0 +1,56 @@
+#Partie_1
+{
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 30px;
+	padding-top: 20px;
+	border-bottom: 0.5px solid #0062A0;
+}
+
+section form
+{
+	font-size: 0.8em;
+	display: flex;
+	height: 23px;
+}
+
+section label
+{
+	margin-left: 40px;
+}
+
+#button_validation1
+{
+	margin: 0 0 50px 50px;
+}
+
+
+#Partie_2
+{
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 60px;
+	padding-top: 20px;
+}
+
+#Partie_2 div
+{
+	display: flex;
+	justify-content: flex-end;
+}
+
+#Partie_3
+{
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 60px;
+	padding-top: 20px;
+}
+
+#Partie_3 div
+{
+	display: flex;
+	justify-content: flex-end;
+}
+
+

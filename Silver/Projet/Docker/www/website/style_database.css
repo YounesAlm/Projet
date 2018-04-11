@@ -1,0 +1,81 @@
+#Partie_1
+{
+	display: flex;
+	border-bottom: 0.5px solid #0062A0;
+	padding-bottom: 20px;
+	padding-top: 60px;
+}
+
+section a
+{
+	margin-left: 550px;
+	margin-top: 40px; 
+}
+
+
+#Partie_2
+{
+	border-bottom: 0.5px solid #0062A0;
+	padding-bottom: 30px;
+	padding-top: 20px;
+}
+
+form
+{
+	display: flex;
+	justify-content: space-between;
+}
+
+form #par
+{
+	display: flex;
+	flex-direction: column;
+}
+#droite label
+{
+	display: block;
+	width: 300px;
+	float: left;
+}
+
+#gauche label
+{
+	display: block;
+	width: 300px;
+	float: left;
+}
+
+span
+{
+	text-decoration: underline;
+}
+
+#Partie_3
+{
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 60px;
+	padding-top: 20px;
+}
+
+section form p
+{
+	margin-left: 80px; 
+}
+
+#para_change
+{
+	padding-top: 55px;
+}
+
+#button_validation1
+{
+	padding-top: 270px;
+	padding-left: 100px;
+}
+
+#button_validation2
+{
+	padding-top: 100px;
+	padding-left: 50px;
+}

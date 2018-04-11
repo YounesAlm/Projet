@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style_principal.css" />
+        <link rel="stylesheet" href="style_add.css" />
+
+        <title>Database - Add</title>
+    </head>
+    
+    <body>
+        <div id="bloc_page">
+            <header>
+                <div id="titre_principal">
+                    <h1>Database</h1> 
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="page_acceuil.html">Home</a></li>
+                        <li><a href="analysis.html">Analysis</a></li>
+                        <li><a href="database.html"><strong>Database</strong></a></li>
+                    </ul>
+                </nav>
+            </header>
+           
+            <section>
+	            <h2>Add</h2>
+	            <div id="Partie_3">
+                    <form method="post" action="Traitement2.php">
+
+                            <p id = "droite">
+                                <label for="m/z">m/z</label> : <input type='text' name="m/z" id="m/z" size="30" maxlength="20" placeholder="Ex : 0.03"/>
+                                <br />
+                                <br />
+                                <label for="Family">Family</label> : <input type='text' name="Family" id="Family" size="30" maxlength="20" placeholder="Ex :"/>
+                            </p>
+
+                            <p id = "gauche">
+                                <label for="RT">Retention Time</label> : <input type='text' name="RT" id="RT" size="30" maxlength="20" placeholder="Ex :"/>
+                                <br />
+                                <br />
+                                <label for="adduct">Adduct</label> : <input type='text' name="adduct" id="adduct" size="30" maxlength="20" placeholder="Ex :"/>
+                            </p>
+
+                            <p id="button_validation2"><input type="submit" value="Add" class="button_validation" /></p>
+                    </form>
+	            </div>
+	        </section>
+
+            <footer>
+            	
+                <div id="images">
+                	<p>
+                		<img src="image/logo_CNRS.png" alt="Logo CNRS" class="logo"/>
+                    	<img src="image/Logo_IPBS.jpg" alt="Logo UT3" class="logo" />
+            			<img src="image/Logo_UPS.png" alt="Logo Université Paul Sabatier" class="logo" />
+                	</p>
+                </div>
+                <div id="text">
+                	<p>By: C. Ludwig, Y. Bouchiba, J. Decaestecker, W. Puzin</p>
+                	<br />
+	                <p><a href="mailto:william.puzin1@gmail.com"> Contact us </a></p>
+                </div>
+
+            </footer>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,31 @@
+section
+{
+	display: flex;
+	flex-direction: column;
+}
+
+
+#Partie_1
+{
+	padding-top: 60px;
+}
+
+#Partie_2
+{
+	display: flex;
+	justify-content: flex-end;
+}
+
+#Partie_3
+{
+	display: flex;
+	justify-content: center;
+	padding: 30px 0 30px 0;
+}
+
+#Partie_4
+{
+	display: flex;
+	justify-content: flex-end;
+	padding-bottom: 80px;
+}

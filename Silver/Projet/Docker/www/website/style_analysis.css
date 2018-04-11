@@ -1,0 +1,89 @@
+#Partie_1
+{
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 20px;
+	padding-top: 20px;
+	border-bottom: 0.5px solid #0062A0;
+}
+
+section form
+{
+	display: flex;
+	text-align: left;
+	font-size: 0.8em;
+}
+
+.element:nth-child(1)
+{
+	margin: 20px 0 0 80px;
+	flex: 1;
+}
+
+.element:nth-child(2) label
+{
+	display: block;
+	width: 270px;
+	float: left;
+}
+
+.element:nth-child(2)
+{
+	flex: 2;
+}
+
+.element:nth-child(3)
+{
+	align-self: flex-end;
+	margin: 0 50px 0 0;
+}
+
+.element2:nth-child(1)
+{
+	margin: 20px 50px 0 100px;
+}
+
+.element2:nth-child(2)
+{
+	flex: 1;
+	margin: 20px 50px 0 100px;
+}
+
+.element2:nth-child(3)
+{
+	align-self: flex-end;
+	margin: 0 50px 0 0;
+}
+
+.element2:nth-child(2) label
+{
+	display: block;
+	width: 250px;
+	float: left;
+}
+
+#para_change
+{
+	padding-top: 45px;
+}
+
+
+#Partie_2
+{
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 60px;
+	padding-top: 20px;
+}
+
+#button_validation1
+{
+	padding-top: 170px;
+	padding-left: 100px;
+}
+
+#button_validation2
+{
+	padding-top: 100px;
+	padding-left: 50px;
+}

@@ -1,0 +1,23 @@
+section
+{
+	margin: 200px 0 200px 0;
+}
+
+#droite label
+{
+	display: block;
+	width: 150px;
+	float: left;
+}
+
+#gauche label
+{
+	display: block;
+	width: 250px;
+	float: left;
+}
+form
+{
+	display: flex;
+	justify-content: space-between;
+}

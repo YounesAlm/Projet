@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style_principal.css" />
+        <link rel="stylesheet" href="style_analysis.css" />
+        <title>Analysis</title>
+    </head>
+    
+    <body>
+        <div id="bloc_page">
+            <header>
+                <div id="titre_principal">
+                    <h1>Analysis</h1> 
+                </div>
+
+                <nav>
+                    <ul>
+                        <li><a href="page_acceuil.html">Home</a></li>
+                        <li><a href="analysis.html"><strong>Analysis</strong></a></li>
+                        <li><a href="database.html">Database</a></li>
+                    </ul>
+                </nav>
+            </header>
+           
+            <section>
+	            <div id="Partie_1">
+	            	<h2>Peak-lists extracting</h2>
+
+	            	<form method="post" action="reception.php" enctype="mutipart/form-data">
+		                	<p class="element">
+		                		<label for="file">File (.mzXML) max 1Mo</label> : <input type='file' name="fichier.mzXML" id="file" size="30" maxlength="20" value="1048576"/>
+		                		<br />
+		                		<br />
+		                		<br />
+		                		<label for="script">Script :</label>
+		                		<select name="script" id="script">
+		                			<option value="script_1">script 1</option>
+		                			<option value="script_2">script 2</option>
+		                			<option value="script_3">script 3</option>
+		                		</select>
+		                	</p>
+
+		                	<p class="element">
+		                		Paramaters :
+		                		<br />
+		                		<br />
+		                		<label for="mass"> - Mass (ppm)</label> : <input type='text' name="mass" id="mass" size="30" maxlength="20" placeholder="Ex : 0.03"/>
+		                		<br />
+		                		<br />
+		                		<label for="mass/ration"> - Mass and load ration (MZDIFF)</label> : <input type='text' name="mass/ration" id="mass/ration" size="30" maxlength="20" placeholder="Ex : 0.03"/>
+		                		<br />
+		                		<br />
+		                		<label for="Snthesh"> - Chartjunk (Snthesh)</label> : <input type='text' name="Snthesh" id="Snthesh" size="30" maxlength="20" placeholder="Ex : 0.03"/>
+		                	</p>
+
+		                	<p id="button_validation1" class="element"><input type="submit" value="Submit" class="button_validation"/></p>
+	            	</form>
+	            </div>
+
+	            <div id="Partie_2">
+					<h2>Outputs selection</h2>
+					<form method="post" action="Traitement2.php">
+		                	<p class="element2">
+		                		Graphic : <br /><br />
+		                		<input type="radio" name="graph" value="vol" id="vol"/> <label for="vol"> Vocano Plot</label><br /><br />
+		                		<input type="radio" name="graph" value="area" id="area"/> <label for="area"> area / area</label>
+		                	</p>
+		               
+
+		                	<p class="element2">
+		                		t-Test :
+		                		<br />
+		                		<br />
+		                		<label for="fold"> - Fold-change</label> : <input type='text' name="fold" id="fold" size="30" maxlength="20" placeholder="Ex :"/>
+		                		<br />
+		                		<br />
+		                		<label for="p-v"> - p-value</label> : <input type='text' name="p-v" id="p-v" size="30" maxlength="20" placeholder="Ex :"/>
+		                	</p>
+
+		                	<p id="button_validation2" class="element2"><input type="submit" value="Submit" class="button_validation" /></p>
+	            	</form>
+
+	                
+	            </div>
+	        </section>
+
+            <footer>
+            	
+                <div id="images">
+                	<p>
+                		<img src="image/logo_CNRS.png" alt="Logo CNRS" class="logo"/>
+                    	<img src="image/Logo_IPBS.jpg" alt="Logo UT3" class="logo" />
+            			<img src="image/Logo_UPS.png" alt="Logo Université Paul Sabatier" class="logo" />
+                	</p>
+                </div>
+                <div id="text">
+                	<p>By: C. Ludwig, Y. Bouchiba, J. Decaestecker, W. Puzin</p>
+                	<br />
+	                <p><a href="mailto:william.puzin1@gmail.com"> Contact us </a></p>
+                </div>
+
+            </footer>
+        </div>
+    </body>
+</html>
+
