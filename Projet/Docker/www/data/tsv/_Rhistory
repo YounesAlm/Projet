@@ -1,0 +1,512 @@
+sum(afc1$eig)
+1/sum(tab)*res$statistic #sum(tb) permet d'accéder au nombre d'individus.
+afc2=dudi.coa(santacatalina)
+data("santacatalina")
+afc2=dudi.coa(santacatalina)
+(afc2$eig[1]+afc2$eig[2])/sum(afc2$eig)
+scatter(afc2, posi="topright")
+score.doa(afc2,xax=1,dotchart=TRUE)
+chisq.test(ours[,1],ours[,9])
+data(ours)
+chisq.test(ours[,1],ours[,9])
+acm1=dudi.acm(ours)
+names(acm1)
+scatter(acm1,col=rainbow(7))
+acm1$cr
+acm1$cr
+knitr::opts_chunk$set(echo = TRUE)
+*%£``
+knitr::opts_chunk$set(echo = TRUE)
+plot(pressure)
+library(ade4)
+data(lizards)
+d=dist(scale(lizards$traits))
+dendro=hclust(d, method="ward.D") #ward.D = ward mais en tenant compte de la variance
+plot(dendro,hang=-1)
+cutree(dendro,3)
+x = rbind(matrix(rnorm(100, mean=0, sd=0.3), ncol = 2), matrix(rnorm(100, mean=1, sd=0.3), ncol=2))
+plot(x)
+cm=kmeans(x,2)
+cm
+cm$cluster #composition des groupes
+plot(x, col=cm$cluster)
+cm$cluster #composition des groupes
+plot(x, col=cm$cluster)
+points(cm$centers,col=1:2,pch=8,cex=2)
+tree = rpart(Species~., iris[,1:4]) #Travaille sur les colonnes 1 à 4 et choisit les meilleures.
+library(rpart)
+data(iris)
+attach(iris)
+tree = rpart(Species~., iris[,1:4]) #Travaille sur les colonnes 1 à 4 et choisit les meilleures.
+tree
+plot(tree)
+text(tree)
+predict(tree)
+library(MASS)
+library(MASS)
+data(crabs)
+attach(crabs)
+groupe=sp:sex
+groupe=sp:sex
+groupe
+afd1=discrimin(dudi.pca(crabs[,4:8]),groupe)
+afd1
+s.arrow(afd1$fa)
+s.class(afd1$li, groupe)
+parmfrow(c(1,2))
+par(mfrow(c(1,2)))
+par(c(1,2))
+s.arrow(afd1$fa)
+s.class(afd1$li, groupe)
+par(mfrow=c(1,2))
+s.arrow(afd1$fa)
+s.class(afd1$li, groupe)
+par(mfrow=c(1,2))
+s.arrow(afd1$fa)
+s.class(afd1$li, groupe)
+par(mfrow=c(1,2))
+s.class(afd1$li, groupe)
+s.arrow(afd1$fa)
+rand=rtest.discrimin(afd1,1000)
+afd2= lda(groupe~FL+RW+CL+CW+BD)
+predict(afd2)
+afd2= lda(groupe~FL+RW+CL+CW+BD)
+predict(afd2)
+table(groupe,predict(afd2)$class)
+afd3= lda(groupe~FL+RW+CL+CW+BD, CV=TRUE)
+library(xcms)
+install.packages("xcms")
+source("https://bioconductor.org/biocLite.R")
+biocLite("xcms")
+source('https://bioconductor.org/biocLite.R')
+biocLite("mzR")
+biocLite("mzR")
+source('https://bionconductor.org/biocLite.R')
+source('http://bionconductor.org/biocLite.R')
+source('https://bioconductor.org/biocLite.R')
+data(iris)
+data("iris")
+getwd()
+myAlign = read.table("myAlign.tsv",header=T,sep="\t")
+setwd("/home/coralie/Bureau/Docker/dockerfiles/www/scripts")
+setwd("/home/coralie/Bureau/Docker/dockerfiles/www/scripts")
+myAlign = read.table("myAlign.tsv",header=T,sep="\t")
+#Extraction des colonnes contenant les aires:
+columns = grep("^X[0-9]+",colnames(myAlign),value=T)
+#Nombre de réplicats:
+cond = grep("^X[0-9]+|X|name|fold|tstat|pvalue|anova|mz[a-z]+|rt[a-z]+|npeaks|metlin",colnames(myAlign),value=T,invert=T)
+nb_replicat = length(columns)/length(cond)
+#Création d'un nouveau tableau avec les aires seulement:
+areas = subset(myAlign,select=columns)
+#Calcul des p-values:
+nb_tests = (length(cond)*(length(cond)-1))/2
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+Results[,1] = subset(myAlign,select=grep("fold",colnames(myAlign),value=T))
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 2
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+cptr2 = cptr2+1
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+}
+}
+#Suppression des ions présents dans les conditions optionnelles :
+for(j in 3:ncol(Results)){
+Results = subset(Results, Results[,j]>0,05)
+}
+#EPS
+setEPS()
+postscript("Volcano.eps")
+plot(-log10(Results[,2]),log2(Results[,1]),xlab="-log10 p-value", ylab="log2 foldchange")
+dev.off()
+setwd("/home/coralie/Bureau/Docker/dockerfiles/www/data/tsv")
+myAlign = read.table("myAlign.tsv",header=T,sep="\t")
+#Extraction des colonnes contenant les aires:
+columns = grep("^X[0-9]+",colnames(myAlign),value=T)
+#Nombre de réplicats:
+cond = grep("^X[0-9]+|X|name|fold|tstat|pvalue|anova|mz[a-z]+|rt[a-z]+|npeaks|metlin",colnames(myAlign),value=T,invert=T)
+nb_replicat = length(columns)/length(cond)
+#Création d'un nouveau tableau avec les aires seulement:
+areas = subset(myAlign,select=columns)
+#Calcul des p-values:
+nb_tests = (length(cond)*(length(cond)-1))/2
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+Results[,1] = subset(myAlign,select=grep("fold",colnames(myAlign),value=T))
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 2
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+cptr2 = cptr2+1
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+}
+}
+setwd("/home/coralie/Bureau/Docker/dockerfiles/www/data/tsv")
+myAlign = read.table("myAlign.tsv",header=T,sep="\t")
+#Extraction des colonnes contenant les aires:
+columns = grep("^X[0-9]+",colnames(myAlign),value=T)
+#Nombre de réplicats:
+cond = grep("^X[0-9]+|X|name|fold|tstat|pvalue|anova|mz[a-z]+|rt[a-z]+|npeaks|metlin",colnames(myAlign),value=T,invert=T)
+nb_replicat = length(columns)/length(cond)
+#Création d'un nouveau tableau avec les aires seulement:
+areas = subset(myAlign,select=columns)
+#Calcul des p-values:
+nb_tests = (length(cond)*(length(cond)-1))/2
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+Results[,1] = subset(myAlign,select=grep("fold",colnames(myAlign),value=T))
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 2
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+col = col+1
+}
+}
+View(Results)
+names(Results)
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+#Calcul des p-values:
+nb_tests = (length(cond)*(length(cond)-1))/2
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+nameCol = names(Results)
+nameCol[1] = fold change
+nameCol[1] = "fold change"
+View(Results)
+setwd("/home/coralie/Bureau/Docker/dockerfiles/www/data/tsv")
+myAlign = read.table("myAlign.tsv",header=T,sep="\t")
+#Extraction des colonnes contenant les aires:
+columns = grep("^X[0-9]+",colnames(myAlign),value=T)
+#Nombre de réplicats:
+cond = grep("^X[0-9]+|X|name|fold|tstat|pvalue|anova|mz[a-z]+|rt[a-z]+|npeaks|metlin",colnames(myAlign),value=T,invert=T)
+nb_replicat = length(columns)/length(cond)
+#Création d'un nouveau tableau avec les aires seulement:
+areas = subset(myAlign,select=columns)
+#Calcul des p-values:
+nb_tests = (length(cond)*(length(cond)-1))/2
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+names(Results)[1] <- "fold change"
+View(Results)
+#Création du tableau de résultats:
+nb_tests = (length(cond)*(length(cond)-1))/2
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+names(Results)[1] <- "fold change"
+Results[,1] = subset(myAlign,select=grep("fold",colnames(myAlign),value=T))
+for(i in 2:nb_tests+1){
+names(Results)[i] = "o-no"
+}
+for(i in 2:(nb_tests+1)){
+names(Results)[i] = "o-no"
+}
+View(Results)
+for(i in 2:(nb_tests+1)){
+names(Results)[i] = colnames(areas[i])+colnames()[i+nb_réplicats]
+}
+for(i in 2:(nb_tests+1)){
+names(Results)[i] = colnames(areas[,i])+colnames(areas[,i+nb_réplicats])
+}
+for(i in 2:(nb_tests+1)){
+names(Results)[i] = colnames(areas[,i])+colnames(areas[,i+nb_replicat])
+}
+colnames(areas[,1])
+View(areas)
+names(areas)
+for(i in 2:(nb_tests+1)){
+names(Results)[i] = names(areas[i-1])+names(areas[,i+nb_replicat])
+}
+for(i in 2:(nb_tests+1)){
+names(Results)[i] = paste(names(areas[i-1]),names(areas[,i+nb_replicat]),sep=" ")
+}
+View(Results)
+names(areas[2-1])
+names(areas[,2+3])
+names(areas[,2+3-1])
+View(areas)
+names(areas[,4])
+names(areas[4])
+for(i in 2:(nb_tests+1)){
+names(Results)[i] = paste(names(areas[i-1]),names(areas[i+nb_replicat-1]),sep=" ")
+}
+View(Results)
+for(i in 2:(nb_tests+1)){
+names(Results)[i] = paste(names(areas[i-1]),names(areas[i+nb_replicat-1]),sep="/")
+}
+View(Results)
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+names(Results)[1] <- "fold change"
+Results[,1] = subset(myAlign,select=grep("fold",colnames(myAlign),value=T))
+#Calcul des p-values
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 1
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+col = col+1
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+names(Results)[i] = paste(names(areas[cptr]),names(areas[ptr2]),sep="/")
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+col = col+1
+}
+}
+#Calcul des p-values
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 1
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+col = col+1
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+names(Results)[i] = paste(names(areas[cptr]),names(areas[cptr2]),sep="/")
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+col = col+1
+}
+}
+#Calcul des p-values
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 1
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+col = col+1
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+print(areas[cptr])
+print(areas[cptr2])
+names(Results)[i] = paste(names(areas[cptr]),names(areas[cptr2]),sep="/")
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+col = col+1
+}
+}
+#Calcul des p-values
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 1
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+col = col+1
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+print(names(areas[cptr]))
+print(names(areas[cptr2]))
+names(Results)[i] = paste(names(areas[cptr]),names(areas[cptr2]),sep="/")
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+col = col+1
+}
+}
+#Calcul des p-values
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 1
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+col = col+1
+while(cptr2<ncol(areas)-2){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+print(names(areas[cptr]))
+print(names(areas[cptr2]))
+names(Results)[i] = paste(names(areas[cptr]),names(areas[cptr2]),sep="/")
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+col = col+1
+}
+}
+View(Results)
+#Création du tableau de résultats:
+nb_tests = (length(cond)*(length(cond)-1))/2
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+names(Results)[1] <- "fold change"
+Results[,1] = subset(myAlign,select=grep("fold",colnames(myAlign),value=T))
+#Calcul des p-values
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 1
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+col = col+1
+while(cptr2<ncol(areas)-2){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+names(Results)[col] = paste(names(areas[cptr]),names(areas[cptr2]),sep="/")
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+col = col+1
+}
+}
+View(Results)
+#Calcul des p-values
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 1
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+col = col+1
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+names(Results)[col] = paste(names(areas[cptr]),names(areas[cptr2]),sep="/")
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+col = col+1
+}
+}
+View(Results)
+noms = colnames(areas)
+noms[1]
+substr(strsplit(noms[1],"_"),2)
+strsplit(noms[1],"_")
+strsplit(noms[1],"_")[2]
+l = strsplit(noms[1],"_")
+l
+l[2]
+type(l)
+l[1][2]
+strsplit(l,".")
+as.list(l)
+li=as.list(l)
+li
+li[2]
+l[1]
+strsplit(l[1],".")
+setwd("/home/coralie/Bureau/Docker/dockerfiles/www/data/tsv")
+myAlign = read.table("myAlign.tsv",header=T,sep="\t")
+#Extraction des colonnes contenant les aires:
+columns = grep("^X[0-9]+",colnames(myAlign),value=T)
+#Nombre de réplicats:
+cond = grep("^X[0-9]+|X|name|fold|tstat|pvalue|anova|mz[a-z]+|rt[a-z]+|npeaks|metlin",colnames(myAlign),value=T,invert=T)
+nb_replicat = length(columns)/length(cond)
+#Création d'un nouveau tableau avec les aires seulement:
+areas = subset(myAlign,select=columns)
+#Création du tableau de résultats:
+nb_tests = (length(cond)*(length(cond)-1))/2
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+names(Results)[1] <- "fold change"
+Results[,1] = subset(myAlign,select=grep("fold",colnames(myAlign),value=T))
+#Calcul des p-values
+for (i in 1:nrow(areas)){
+cptr = 1 #Compteur position dans le tableau d'aires de la 1ère condition
+col = 1 #Compteur de la position dans le tableau de résultats
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat #Compteur position dans le tableau d'aires de la 2ème condition
+col = col+1
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value #Test de Student entre les 2 conditions
+names(Results)[col] = paste(names(areas[cptr]),names(areas[cptr2]),sep="/") #Attribution du nom à la colonne de résultat
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+col = col+1
+}
+}
+View(Results)

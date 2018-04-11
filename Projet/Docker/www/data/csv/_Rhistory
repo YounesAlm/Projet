@@ -1,0 +1,388 @@
+gzip -d SHOW.tar.gz
+source('https://bioconductor.org/biocLite.R')
+biocLite('affy')
+install.packages("igraph")
+install.packages("igraph")
+library.path <- .liPaths(/tmp/Rtmprj4CZC/downloaded_packages)
+library.path <- .liPaths(tmp/Rtmprj4CZC/downloaded_packages)
+library("igraph", lib.loc = tmp/Rtmprj4CZC/downloaded_packages)
+library("igraph", lib.loc = /tmp/Rtmprj4CZC/downloaded_packages)
+install.packages("igraph")
+library("igraph")
+install.packages("igraph")
+library("igraph")
+install.packages("igraph")
+library(igraph)
+library(igraph)
+add_loop <- function(M)
+{
+for (i in 1:nrow(M))
+{
+for (j in 1:ncol(M))
+{
+if (i == j)
+M[i,j]<-1 #Ajout d'un arc ou d'une arête allant d'un sommet vers lui-même.
+}
+}
+M
+}
+make_stochastic <- function(M)
+{
+M=apply(M, 1,function(X) if (sum(X)!=0){X/sum(X)})
+#Les éléments de chaque ligne sont divisés par la somme des éléments de la ligne pour pondérer la matrice
+M=t(M)
+}
+expanse <- function(M)
+{
+M<-M %*% M #Multiplication de la matrice par elle-même.
+M
+}
+inflate<- function(M, facteur=2)
+{
+M=apply(M, 2, function(X) X^facteur) #Elévation de chaque élément de la matrice à la puissance "facteur"
+M=make_stochastic(M) #Normalisation de la matrice
+}
+maxrow <- function(M)
+{
+apply(M, 1, max)
+}
+sum_sq <- function(M)
+{
+apply(M, 1, function(x) sum(x**2))
+}
+row_chaos <- function(M)
+{
+change <- maxrow(M)- sum_sq(M)
+}
+chaos <- function(M)
+{
+change <- max(row_chaos(M))
+}
+MCL <- function(M, facteur=2)
+{
+M=add_loop(M)
+M2=make_stochastic(M)
+change=1
+while (change>0.001)
+{
+M2=expanse(M2)
+M2=inflate1(M2, facteur)
+change=chaos(M2)
+}
+M2=round(M2,3)
+M2
+}
+g = read.graph('http://silico.biotoul.fr/enseignement/m1/math/projet/toy.tgr', directed=FALSE)
+install.packages("igraph")
+library(igraph)
+install.packages("igraph",repos="http://cran.case.edu")
+library(igraph)
+install.packages("devtools")
+library(devtools)
+install.packages("devtools")
+library(devtools)
+install.packages("devtools")
+install.packages("devtools")
+library(devtools)
+install.packages("devtools")
+library(devtools)
+etRepositories(graphics = getOption("igraph"),
+ind = NULL)
+ap <- available.packages()
+install.packages("devtools")
+install.packages("devtools")
+install.packages("igraph", repos="http://cran.rstudio.com/", dependencies=TRUE)
+library(igraph)
+knitr::opts_chunk$set(echo = TRUE)
+library(ade4)
+install.packages("ade4")
+library(ade4)
+data(rpjdl)
+data(rpjdl)
+millog=log(rpjdl$mil+1)
+cca1=cca(rpjdl$fau,millog) #l'ordre d'entrée des tableaux de données est important.
+install.packages("vegan")
+library(vegan)
+data(varespec)
+data(varechem)
+cca2=cca(varespec,varechem)
+plot(cca1) #Représentation à la fois des sites et des variables.
+cca2=cca(varespec,varechem)
+plot(cca2) #Représentation à la fois des sites et des variables.
+cca3=cca(varespec~Al+P+K,varechem) #ACC entre données sur les espèces et concentration en aluminium, phosphate et potassium du sol.
+plot(cca3)
+anova(cca3)
+cca4=cca(varespec~N+Condition(Al+P+K),varechem,step=40) #En Condition(), les variables déjà testées.
+anova(cca4)
+data(doubs)
+names(doubs)
+pca1=dudi.pca(doubs$env) #ACP normée
+pca2=dudi.pca(doubs$fish,scale=FALSE)#ACP centrée car on veut garder les informations de variation d'une espèce à l'autre.
+scatter(pca1)
+scatter(pca2)
+coiner1=coinertia(pca1,pca2)
+names(coiner1)
+par(mfrow=c(2,2))
+s.corcircle(coiner1$aX)
+s.corcircle(coiner1$aY)
+s.arrow(coiner1$c1)
+s.arrow(coiner1$l1)
+s.match(coiner1$mX,coiner1$mY)
+plot(coiner1)
+coiner1$RV
+testRV=RV.rtest(pca1$tab,pca2$tab,1000)
+testRV
+library(ade4)
+data(tortues)
+plot(tortues[,1:3],col=as.numeric(tortues$sex))
+boxplot(tortues[,1:3])
+acp1=dudi.pca(tortues[,1:3]) #Si on veut une ACP non normée, rajoute scale=TRUE
+names(acp1)
+acp1$eig #Afficher les vp
+barplot(acp1$eig) #Représentation graphique
+acp1$eig[1]/sum(acp1$eig))*100
+(acp1$eig[1]/sum(acp1$eig))*100
+#Autrement dit : (2.91474158/(2.91474158+0.06390899+0.02134943))*100
+sum(acp1$eig)/3
+#acp1$li[,1] permet de ne sélectionner que les coordonnées des individus sur le premier axe.
+#var() donne la variance sur n-1, on fait donc *47/48 pour ajuster la variance.
+var(acp1$li[,1])*47/48
+acp1$eig[1]
+acp1$co
+s.corcircle(acp1$co)
+plot(acp1$li)
+abline(h=0, v=0)
+#Coordonnées de l'individu 1:
+acp1$li[,1]
+#Calcul des coordonnées:
+acp1$c1[,1] #coefficients de corrélation entre les variables et l'axe 1.
+acp1$tab[1,] #1ère ligne du tableau de données centrées-réduites.
+coor_ind1_ax1=sum(acp1$c1[,1]*acp1$tab[1,])
+#Coordonnées de l'individu 1:
+acp1$li[1,]
+#Calcul des coordonnées:
+acp1$c1[,1] #coefficients de corrélation entre les variables et l'axe 1.
+acp1$tab[1,] #1ère ligne du tableau de données centrées-réduites.
+coor_ind1_ax1=sum(acp1$c1[,1]*acp1$tab[1,])
+s.class(acp1$li,tortues$sex,col=c("blue","red"))
+boxplot(acp1$li[,1]~tortues$sex,col=c("blue","red"))
+library(sp)
+install.packages("sp")
+library(sp)
+data(mafragh)
+acp2=dudi.pca(mafragh$env)
+Y=sum(acp2$eig)
+#Pourcentage d'information sur l'axe 1:
+(acp2$eig[1]/Y)*100
+#Pourcentage d'information sur l'axe 2:
+(acp2$eig[2]/Y)*100
+#Pourcentage d'information non représentée dans l'ACP:
+(sum(acp2$eig)-acp2$eig[1]-acp2$eig[2])/Y*100
+s.corcircle(acp1$co)
+s.corcircle(acp2$co)
+s.class(acp2$li,mafragh$partition)
+boxplot(acp2$li[,1]~mafragh$partition)
+boxplot(acp2$li[1,]~mafragh$partition)
+boxplot(acp2$li[,1]~mafragh$partition)
+boxplot(acp2$li[,2]~mafragh$partition)
+library(ade4)
+tab=matrix(c(140,20,40,160,10,30,150,50,100,50,20,230),nrow=4,ncol=3,dimnames=list(c("L","ES","S","Tech"),c("Univ","Prepa","IUT")))
+tab=matrix(c(140,20,40,160,10,30,150,50,100,50,20,230),nrow=4,ncol=3,dimnames=list(c("L","ES","S","Tech"),c("Univ","Prepa","IUT")))
+tab
+res=chisq.test(tab)
+res
+res$expected
+afc1=dudi.coa(tab)
+names(afc1)
+barplot(afc1$eig)
+(afc1$eig[1]+afc1$eig[2])/sum(afc1$eig)
+scatter(afc1)
+tab=matrix(c(140,160,150,50,20,10,50,20,40,30,100,230),nrow=4,ncol=3,dimnames=list(c("L","ES","S","Tech"),c("Univ","Prepa","IUT")))
+tab
+afc1=dudi.coa(tab)
+names(afc1)
+barplot(afc1$eig)
+(afc1$eig[1]+afc1$eig[2])/sum(afc1$eig)
+scatter(afc1)
+sum(afc1$eig)
+1/sum(tab)*res$statistic #sum(tb) permet d'accéder au nombre d'individus.
+res=chisq.test(tab)
+res
+res$expected
+sum(afc1$eig)
+1/sum(tab)*res$statistic #sum(tb) permet d'accéder au nombre d'individus.
+afc2=dudi.coa(santacatalina)
+data("santacatalina")
+afc2=dudi.coa(santacatalina)
+(afc2$eig[1]+afc2$eig[2])/sum(afc2$eig)
+scatter(afc2, posi="topright")
+score.doa(afc2,xax=1,dotchart=TRUE)
+chisq.test(ours[,1],ours[,9])
+data(ours)
+chisq.test(ours[,1],ours[,9])
+acm1=dudi.acm(ours)
+names(acm1)
+scatter(acm1,col=rainbow(7))
+acm1$cr
+acm1$cr
+knitr::opts_chunk$set(echo = TRUE)
+*%£``
+knitr::opts_chunk$set(echo = TRUE)
+plot(pressure)
+library(ade4)
+data(lizards)
+d=dist(scale(lizards$traits))
+dendro=hclust(d, method="ward.D") #ward.D = ward mais en tenant compte de la variance
+plot(dendro,hang=-1)
+cutree(dendro,3)
+x = rbind(matrix(rnorm(100, mean=0, sd=0.3), ncol = 2), matrix(rnorm(100, mean=1, sd=0.3), ncol=2))
+plot(x)
+cm=kmeans(x,2)
+cm
+cm$cluster #composition des groupes
+plot(x, col=cm$cluster)
+cm$cluster #composition des groupes
+plot(x, col=cm$cluster)
+points(cm$centers,col=1:2,pch=8,cex=2)
+tree = rpart(Species~., iris[,1:4]) #Travaille sur les colonnes 1 à 4 et choisit les meilleures.
+library(rpart)
+data(iris)
+attach(iris)
+tree = rpart(Species~., iris[,1:4]) #Travaille sur les colonnes 1 à 4 et choisit les meilleures.
+tree
+plot(tree)
+text(tree)
+predict(tree)
+library(MASS)
+library(MASS)
+data(crabs)
+attach(crabs)
+groupe=sp:sex
+groupe=sp:sex
+groupe
+afd1=discrimin(dudi.pca(crabs[,4:8]),groupe)
+afd1
+s.arrow(afd1$fa)
+s.class(afd1$li, groupe)
+parmfrow(c(1,2))
+par(mfrow(c(1,2)))
+par(c(1,2))
+s.arrow(afd1$fa)
+s.class(afd1$li, groupe)
+par(mfrow=c(1,2))
+s.arrow(afd1$fa)
+s.class(afd1$li, groupe)
+par(mfrow=c(1,2))
+s.arrow(afd1$fa)
+s.class(afd1$li, groupe)
+par(mfrow=c(1,2))
+s.class(afd1$li, groupe)
+s.arrow(afd1$fa)
+rand=rtest.discrimin(afd1,1000)
+afd2= lda(groupe~FL+RW+CL+CW+BD)
+predict(afd2)
+afd2= lda(groupe~FL+RW+CL+CW+BD)
+predict(afd2)
+table(groupe,predict(afd2)$class)
+afd3= lda(groupe~FL+RW+CL+CW+BD, CV=TRUE)
+library(xcms)
+install.packages("xcms")
+source("https://bioconductor.org/biocLite.R")
+biocLite("xcms")
+source('https://bioconductor.org/biocLite.R')
+biocLite("mzR")
+biocLite("mzR")
+source('https://bionconductor.org/biocLite.R')
+source('http://bionconductor.org/biocLite.R')
+source('https://bioconductor.org/biocLite.R')
+data(iris)
+data("iris")
+getwd()
+myAlign = read.table("myAlign.tsv",header=T,sep="\t")
+setwd("/home/coralie/Bureau/Docker/dockerfiles/www/scripts")
+setwd("/home/coralie/Bureau/Docker/dockerfiles/www/scripts")
+myAlign = read.table("myAlign.tsv",header=T,sep="\t")
+#Extraction des colonnes contenant les aires:
+columns = grep("^X[0-9]+",colnames(myAlign),value=T)
+#Nombre de réplicats:
+cond = grep("^X[0-9]+|X|name|fold|tstat|pvalue|anova|mz[a-z]+|rt[a-z]+|npeaks|metlin",colnames(myAlign),value=T,invert=T)
+nb_replicat = length(columns)/length(cond)
+#Création d'un nouveau tableau avec les aires seulement:
+areas = subset(myAlign,select=columns)
+#Calcul des p-values:
+nb_tests = (length(cond)*(length(cond)-1))/2
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+Results[,1] = subset(myAlign,select=grep("fold",colnames(myAlign),value=T))
+for (i in 1:nrow(areas)){
+cptr = 1
+col = 2
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value
+cptr2 = cptr2+1
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+}
+}
+#Suppression des ions présents dans les conditions optionnelles :
+for(j in 3:ncol(Results)){
+Results = subset(Results, Results[,j]>0,05)
+}
+#EPS
+setEPS()
+postscript("Volcano.eps")
+plot(-log10(Results[,2]),log2(Results[,1]),xlab="-log10 p-value", ylab="log2 foldchange")
+dev.off()
+setwd("~/Bureau/Cours_Coralie/Ptut/Projet/Docker/www/data/tsv")
+myAlign = read.table("myAlign.tsv",header=T,sep="\t")
+columns = grep("^X[0-9]+",colnames(myAlign),value=T)
+areas = subset(myAlign,select=columns)
+cond = grep("^X[0-9]+|X|name|fold|tstat|pvalue|anova|mz[a-z]+|rt[a-z]+|npeaks|metlin",colnames(myAlign),value=T,invert=T)
+nb_replicat = length(columns)/length(cond)
+nb_tests = (length(cond)*(length(cond)-1))/2
+Results = data.frame(matrix(vector(),nrow(areas),nb_tests+1))
+for(i in 2:(nb_tests+1)){
+names(Results)[i]=paste(cond[i-1],cond[i],sep="/")
+}
+names(Results)[1] = "fold-change"
+Results[,1] = subset(myAlign,select=grep("fold",colnames(myAlign),value=T))
+for (i in 1:nrow(areas)){ #Pour chaque ion
+cptr = 1
+col = 1
+while (cptr<ncol(areas)-nb_replicat){
+cond1 = c(areas[i,cptr])
+for(m in (cptr+1):(cptr+nb_replicat-1)){
+cond1[length(cond1)+1] = areas[i,m]
+}
+cptr2 = cptr+nb_replicat
+col = col+1
+while(cptr2<ncol(areas)-1){
+cond2 = c(areas[i,cptr2])
+for(m in (cptr2+1):(cptr2+nb_replicat-1)){
+cond2[length(cond2)+1] = areas[i,m]
+}
+Results[i,col] = t.test(cond1,cond2)$p.value #Test de Student entre les 2 conditions
+cptr2 = cptr2+3
+}
+cptr = cptr+3
+col = col+1
+}
+}
+View(Results)
+write.csv(Results, file="Results.csv")
+write.csv2(Results, file="Results.csv")
+write.csv2(Results, file="Results.csv")
+write.table(Results, "Results.csv", row.names=FALSE, sep="\t",dec=",", na=" ")
+setwd("~/Bureau/Cours_Coralie/Ptut/Projet/Docker/www/data/csv")
+setwd("~/Bureau/Cours_Coralie/Ptut/Projet/Docker/www/data/csv")
+write.table(Results, "Results.csv", row.names=FALSE, sep="\t",dec=",", na=" ")
