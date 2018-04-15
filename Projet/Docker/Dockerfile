@@ -30,6 +30,9 @@ EXPOSE 80
 #Mise à jour du site apache par défaut avec la configuration qu'on vient de céer
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
 
+#Mise à jour des configurations php
+ADD ./php.ini /usr/local/etc/php/conf.d
+
 #Fichiers du site internet
 ADD www /var/www/site
 

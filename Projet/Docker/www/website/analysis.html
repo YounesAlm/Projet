@@ -26,11 +26,11 @@
             <section>
 	            <div id="Partie_1">
 	            	<h2>Peak-lists extracting</h2>
-
-	            	<form method="post" action="reception.php" enctype="mutipart/form-data">
-		                	<p class="element">
-		                		<label for="file">File (.mzXML) max 1Mo</label> : <input type='file' name="fichier.mzXML" id="file" size="30" maxlength="20" value="1048576"/>
-		                		<br />
+		            <form action="Telechargement.php" method="POST" enctype="multipart/form-data">
+						<input type="file" name="mesfichiers[]" multiple />
+						<input type="submit" name="envoyer" value="Envoyer le fichier">
+					</form>
+		                	<!--	<br />
 		                		<br />
 		                		<br />
 		                		<label for="script">Script :</label>
@@ -55,12 +55,12 @@
 		                	</p>
 
 		                	<p id="button_validation1" class="element"><input type="submit" value="Submit" class="button_validation"/></p>
-	            	</form>
+	            	</form> -->
 	            </div>
 
 	            <div id="Partie_2">
 					<h2>Outputs selection</h2>
-					<form method="post" action="Traitement2.php">
+					<!--<form method="post" action="Traitement2.php">
 		                	<p class="element2">
 		                		Graphic : <br /><br />
 		                		<input type="radio" name="graph" value="vol" id="vol"/> <label for="vol"> Vocano Plot</label><br /><br />
@@ -79,7 +79,7 @@
 		                	</p>
 
 		                	<p id="button_validation2" class="element2"><input type="submit" value="Submit" class="button_validation" /></p>
-	            	</form>
+	            	</form>-->
 
 	                
 	            </div>
