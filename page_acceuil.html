@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style_accueil.css" />
+        <title>MycoMass - Connection</title>
+    </head>
+    
+    <body>
+        <div id="bloc_page">
+            <header>
+                <div id="titre_principal">
+                    <h1>Welcome on MycoMass</h1> 
+                </div>
+            </header>
+           
+            <section>
+
+                <div id="Partie_1">
+                    <p><strong>A database and lipidomic data processing site for the pathogen M. Tuberculosis</strong></p>
+                </div>
+
+                <div id="Partie_2">
+                    <div id="droite">
+                        <h2>Administrator</h2>
+                        <form method="post" action="password.php">
+                            <p>
+                                <label for="identifiant">ID :</label>
+                                <input type="text" name="identifiant" id="identifiant" checked/>
+                                <br />
+                                <br />
+                                <label for="password">Password :</label>
+                                <input type="password" name="password" id="password" checked/>
+                            </p>
+                            <p id="button_validation1">
+                                <input type="submit" value="Submit" class="button_validation"/>
+                            </p>
+                        </form>
+                    </div>
+
+                    <div id="gauche">
+                        <h2>Visitor</h2>
+                        <form method="post" action="invite.php">
+                            <p>
+                                <label for="email">Email :</label>
+                                <input type="email" name="email" id="email" checked/>
+                            </p>
+                            <p id="button_validation2">
+                                <input type="submit" value="Submit" class="button_validation"/>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+
+            </section>
+
+            <footer>
+                
+                <div id="images">
+                    <p>
+                        <img src="image/logo_CNRS.png" alt="Logo CNRS" class="logo"/>
+                        <img src="image/Logo_IPBS.jpg" alt="Logo UT3" class="logo" />
+                        <img src="image/Logo_UPS.png" alt="Logo Université Paul Sabatier" class="logo" />
+                    </p>
+                </div>
+                <div id="text">
+                    <p>By: C. Ludwig, Y. Bouchiba, J. Decaestecker, W. Puzin</p>
+                    <br />
+                    <p><a href="mailto:william.puzin1@gmail.com"> Contact us </a></p>
+                </div>
+
+            </footer>
+        </div>
+    </body>
+</html>
+
