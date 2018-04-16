@@ -12,7 +12,7 @@
     } 
 
     else{
-    	header('Location: page_acceuil.phtml');
+    	header('Location: page_acceuil2.phtml');
     }
 ?>
 
